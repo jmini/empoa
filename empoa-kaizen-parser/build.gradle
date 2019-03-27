@@ -11,9 +11,8 @@ test {
 
 dependencies {
     api "org.eclipse.microprofile.openapi:microprofile-openapi-api:$mpOpenAPIVersion"
-    implementation "io.swagger.core.v3:swagger-models:$swaggerCoreVersion"
+    implementation "com.reprezen.kaizen:openapi-parser:$kaizenVersion"
 
-    testImplementation "io.swagger.parser.v3:swagger-parser:$swaggerParserVersion"
     testImplementation "org.eclipse.microprofile.openapi:microprofile-openapi-tck:$mpOpenAPIVersion"
     testImplementation project(':empoa-extended-tck')
     testImplementation project(':empoa-gson-serializer')
@@ -46,8 +45,8 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             pom {
-                name = 'EMPOA Swagger-Core'
-                description = 'Implementation of the Eclipse MicroProfile OpenAPI interfaces using Swagger-Core'
+                name = 'EMPOA Kaizen openapi-parser'
+                description = 'Implementation of the Eclipse MicroProfile OpenAPI interfaces using Kaizen openapi-parser'
                 packaging = 'jar'
                 url = 'https://' + "$githubRepositoryOwner" + '.github.io/' + "$githubRepositoryName" + '/'
                 licenses {
