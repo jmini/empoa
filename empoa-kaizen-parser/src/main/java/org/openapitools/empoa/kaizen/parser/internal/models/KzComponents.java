@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.Components;
 
 public class KzComponents implements Components {
 
+    private com.reprezen.kaizen.oasparser.model3.OpenApi3 _kzOpenApi3;
+
+    public KzComponents() {
+        // _kzOpenApi3 = new com.reprezen.kaizen.oasparser.model3.OpenApi3();
+    }
+
+    public KzComponents(com.reprezen.kaizen.oasparser.model3.OpenApi3 _kzOpenApi3) {
+        this._kzOpenApi3 = _kzOpenApi3;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.OpenApi3 getKz() {
+        return _kzOpenApi3;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

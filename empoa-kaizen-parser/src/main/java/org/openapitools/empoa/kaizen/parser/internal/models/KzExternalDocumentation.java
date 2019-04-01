@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.ExternalDocumentation;
 
 public class KzExternalDocumentation implements ExternalDocumentation {
 
+    private com.reprezen.kaizen.oasparser.model3.ExternalDocs _kzExternalDocs;
+
+    public KzExternalDocumentation() {
+        // _kzExternalDocs = new com.reprezen.kaizen.oasparser.model3.ExternalDocs();
+    }
+
+    public KzExternalDocumentation(com.reprezen.kaizen.oasparser.model3.ExternalDocs _kzExternalDocs) {
+        this._kzExternalDocs = _kzExternalDocs;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.ExternalDocs getKz() {
+        return _kzExternalDocs;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

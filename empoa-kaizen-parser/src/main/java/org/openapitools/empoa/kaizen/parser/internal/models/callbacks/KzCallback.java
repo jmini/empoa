@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.callbacks.Callback;
 
 public class KzCallback implements Callback {
 
+    private com.reprezen.kaizen.oasparser.model3.Callback _kzCallback;
+
+    public KzCallback() {
+        // _kzCallback = new com.reprezen.kaizen.oasparser.model3.Callback();
+    }
+
+    public KzCallback(com.reprezen.kaizen.oasparser.model3.Callback _kzCallback) {
+        this._kzCallback = _kzCallback;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Callback getKz() {
+        return _kzCallback;
+    }
+
     private String _ref;
 
     @Override

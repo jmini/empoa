@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.links.Link;
 
 public class KzLink implements Link {
 
+    private com.reprezen.kaizen.oasparser.model3.Link _kzLink;
+
+    public KzLink() {
+        // _kzLink = new com.reprezen.kaizen.oasparser.model3.Link();
+    }
+
+    public KzLink(com.reprezen.kaizen.oasparser.model3.Link _kzLink) {
+        this._kzLink = _kzLink;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Link getKz() {
+        return _kzLink;
+    }
+
     private String _ref;
 
     @Override

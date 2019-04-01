@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.Paths;
 
 public class KzPaths implements Paths {
 
+    private com.reprezen.kaizen.oasparser.model3.OpenApi3 _kzOpenApi3;
+
+    public KzPaths() {
+        // _kzOpenApi3 = new com.reprezen.kaizen.oasparser.model3.OpenApi3();
+    }
+
+    public KzPaths(com.reprezen.kaizen.oasparser.model3.OpenApi3 _kzOpenApi3) {
+        this._kzOpenApi3 = _kzOpenApi3;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.OpenApi3 getKz() {
+        return _kzOpenApi3;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

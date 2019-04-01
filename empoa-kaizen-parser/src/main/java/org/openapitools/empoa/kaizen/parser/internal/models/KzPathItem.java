@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.PathItem;
 
 public class KzPathItem implements PathItem {
 
+    private com.reprezen.kaizen.oasparser.model3.Path _kzPath;
+
+    public KzPathItem() {
+        // _kzPath = new com.reprezen.kaizen.oasparser.model3.Path();
+    }
+
+    public KzPathItem(com.reprezen.kaizen.oasparser.model3.Path _kzPath) {
+        this._kzPath = _kzPath;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Path getKz() {
+        return _kzPath;
+    }
+
     private String _ref;
 
     @Override

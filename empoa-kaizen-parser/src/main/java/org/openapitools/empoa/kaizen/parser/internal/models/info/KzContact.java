@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.info.Contact;
 
 public class KzContact implements Contact {
 
+    private com.reprezen.kaizen.oasparser.model3.Contact _kzContact;
+
+    public KzContact() {
+        // _kzContact = new com.reprezen.kaizen.oasparser.model3.Contact();
+    }
+
+    public KzContact(com.reprezen.kaizen.oasparser.model3.Contact _kzContact) {
+        this._kzContact = _kzContact;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Contact getKz() {
+        return _kzContact;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

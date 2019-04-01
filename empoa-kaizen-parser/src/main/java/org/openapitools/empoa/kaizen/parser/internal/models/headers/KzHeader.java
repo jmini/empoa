@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.headers.Header;
 
 public class KzHeader implements Header {
 
+    private com.reprezen.kaizen.oasparser.model3.Header _kzHeader;
+
+    public KzHeader() {
+        // _kzHeader = new com.reprezen.kaizen.oasparser.model3.Header();
+    }
+
+    public KzHeader(com.reprezen.kaizen.oasparser.model3.Header _kzHeader) {
+        this._kzHeader = _kzHeader;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Header getKz() {
+        return _kzHeader;
+    }
+
     private String _ref;
 
     @Override

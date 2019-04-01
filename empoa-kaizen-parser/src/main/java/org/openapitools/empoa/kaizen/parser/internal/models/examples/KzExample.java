@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.examples.Example;
 
 public class KzExample implements Example {
 
+    private com.reprezen.kaizen.oasparser.model3.Example _kzExample;
+
+    public KzExample() {
+        // _kzExample = new com.reprezen.kaizen.oasparser.model3.Example();
+    }
+
+    public KzExample(com.reprezen.kaizen.oasparser.model3.Example _kzExample) {
+        this._kzExample = _kzExample;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Example getKz() {
+        return _kzExample;
+    }
+
     private String _ref;
 
     @Override

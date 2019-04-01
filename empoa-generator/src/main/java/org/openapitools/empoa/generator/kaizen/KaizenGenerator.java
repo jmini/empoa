@@ -16,6 +16,7 @@
 package org.openapitools.empoa.generator.kaizen;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openapitools.empoa.generator.Input;
 import org.openapitools.empoa.specs.AdditionalMethod;
@@ -25,6 +26,7 @@ import org.openapitools.empoa.specs.IMember;
 import org.openapitools.empoa.specs.ListMember;
 import org.openapitools.empoa.specs.MapMember;
 import org.openapitools.empoa.specs.Member;
+import org.openapitools.empoa.specs.kaizen.KzElement;
 import org.openapitools.empoa.util.FileUtil;
 import org.openapitools.empoa.util.StringUtil;
 
@@ -35,10 +37,13 @@ public class KaizenGenerator {
     private String simpleName;
     private String implClassName;
     private String implPackageName;
+    private KzElement kzElement;
+    private String kzVarName;
 
-    public KaizenGenerator(Element element, Input input) {
+    public KaizenGenerator(Element element, Input input, List<KzElement> kzElements) {
         this.element = element;
         this.input = input;
+        this.kzElement = kzElements.get(0); // TODO
         init();
     }
 
@@ -47,6 +52,8 @@ public class KaizenGenerator {
         implClassName = "Kz" + StringUtil.computeSimpleName(element.fqName);
         implPackageName = StringUtil.computePackage(element.fqName)
             .replace("org.eclipse.microprofile.openapi", input.rootPackage);
+        kzVarName = "_kz" + StringUtil.computeSimpleName(kzElement.kzFqName);
+        ;
     }
 
     public String generateContent() {
@@ -58,6 +65,20 @@ public class KaizenGenerator {
         sb.append("public class " + implClassName);
         sb.append(" implements " + simpleName);
         sb.append(" {\n");
+        sb.append("\n");
+        sb.append("    private " + kzElement.kzFqName + " " + kzVarName + ";\n");
+        sb.append("\n");
+        sb.append("    public " + implClassName + "() {\n");
+        sb.append("        // " + kzVarName + " = new " + kzElement.kzFqName + "();\n");
+        sb.append("    }\n");
+        sb.append("\n");
+        sb.append("    public " + implClassName + "(" + kzElement.kzFqName + " " + kzVarName + ") {\n");
+        sb.append("        this." + kzVarName + " = " + kzVarName + ";\n");
+        sb.append("    }\n");
+        sb.append("\n");
+        sb.append("    public " + kzElement.kzFqName + " getKz() {\n");
+        sb.append("        return " + kzVarName + ";\n");
+        sb.append("    }\n");
         sb.append("\n");
         if (element.referenceable) {
             Member refMember = new Member(null, "ref", "String", true, true, false, true);

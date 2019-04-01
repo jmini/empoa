@@ -16,17 +16,41 @@
 package org.openapitools.empoa.generator.kaizen;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.openapitools.empoa.generator.Input;
 import org.openapitools.empoa.specs.Element;
+import org.openapitools.empoa.specs.ElementType;
 import org.openapitools.empoa.specs.OpenAPISpec;
+import org.openapitools.empoa.specs.kaizen.KzElement;
+import org.openapitools.empoa.specs.kaizen.KzSpec;
 
 public class KaizenGeneratorMain {
 
     public static void main(String[] args) throws Exception {
         Input input = new Input(Paths.get("../empoa-kaizen-parser/src/main/java"), "org.openapitools.empoa.kaizen.parser.internal");
+        Map<ElementType, List<KzElement>> map = new HashMap<>();
+        for (KzElement kzElement : KzSpec.elements()) {
+            for (ElementType element : kzElement.mpElements) {
+                List<KzElement> list;
+                if (map.containsKey(element)) {
+                    list = map.get(element);
+                } else {
+                    list = new ArrayList<>();
+                    map.put(element, list);
+                }
+                list.add(kzElement);
+            }
+        }
+
         for (Element element : OpenAPISpec.elements()) {
-            KaizenGenerator generator = new KaizenGenerator(element, input);
+            if (map.get(element.type) == null) {
+                throw new IllegalStateException("No match for " + element.type);
+            }
+            KaizenGenerator generator = new KaizenGenerator(element, input, map.get(element.type));
             generator.writeFile();
         }
     }

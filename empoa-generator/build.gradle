@@ -8,6 +8,7 @@ targetCompatibility = 1.8
 dependencies {
     implementation "org.eclipse.microprofile.openapi:microprofile-openapi-api:$mpOpenAPIVersion"
     implementation "io.swagger.core.v3:swagger-models:$swaggerCoreVersion"
+    implementation "com.reprezen.kaizen:openapi-parser:$kaizenVersion"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

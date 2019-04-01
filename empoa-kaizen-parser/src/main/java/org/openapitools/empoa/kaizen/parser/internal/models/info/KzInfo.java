@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.info.Info;
 
 public class KzInfo implements Info {
 
+    private com.reprezen.kaizen.oasparser.model3.Info _kzInfo;
+
+    public KzInfo() {
+        // _kzInfo = new com.reprezen.kaizen.oasparser.model3.Info();
+    }
+
+    public KzInfo(com.reprezen.kaizen.oasparser.model3.Info _kzInfo) {
+        this._kzInfo = _kzInfo;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Info getKz() {
+        return _kzInfo;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

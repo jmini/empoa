@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.Operation;
 
 public class KzOperation implements Operation {
 
+    private com.reprezen.kaizen.oasparser.model3.Operation _kzOperation;
+
+    public KzOperation() {
+        // _kzOperation = new com.reprezen.kaizen.oasparser.model3.Operation();
+    }
+
+    public KzOperation(com.reprezen.kaizen.oasparser.model3.Operation _kzOperation) {
+        this._kzOperation = _kzOperation;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.Operation getKz() {
+        return _kzOperation;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override

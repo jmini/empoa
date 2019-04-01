@@ -4,6 +4,20 @@ import org.eclipse.microprofile.openapi.models.info.License;
 
 public class KzLicense implements License {
 
+    private com.reprezen.kaizen.oasparser.model3.License _kzLicense;
+
+    public KzLicense() {
+        // _kzLicense = new com.reprezen.kaizen.oasparser.model3.License();
+    }
+
+    public KzLicense(com.reprezen.kaizen.oasparser.model3.License _kzLicense) {
+        this._kzLicense = _kzLicense;
+    }
+
+    public com.reprezen.kaizen.oasparser.model3.License getKz() {
+        return _kzLicense;
+    }
+
     private java.util.Map<String, Object> _extensions;
 
     @Override
