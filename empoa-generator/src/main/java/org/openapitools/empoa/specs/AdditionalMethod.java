@@ -25,6 +25,6 @@ public class AdditionalMethod implements IMember {
     }
 
     public static enum Type {
-        PathItem_getOperations, SecurityRequirement_addScheme_singleton, SecurityRequirement_addScheme_empty, Schema_setAdditionalPropertiesSchema, Schema_setAdditionalPropertiesBoolean, APIResponses_getDefaultValue, APIResponses_setDefaultValue,
+        PathItem_getOperations, SecurityRequirement_addScheme_singleton, SecurityRequirement_addScheme_empty, Schema_setAdditionalPropertiesSchema, Schema_setAdditionalPropertiesBoolean, APIResponses_getDefaultValue, APIResponses_setDefaultValue, Server_setVariables
     }
 }

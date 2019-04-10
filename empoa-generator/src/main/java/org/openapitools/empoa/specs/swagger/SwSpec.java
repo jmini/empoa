@@ -13,9 +13,6 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  ******************************************************************************/
-/**
- *
- */
 package org.openapitools.empoa.specs.swagger;
 
 import java.math.BigDecimal;
@@ -446,6 +443,7 @@ public class SwSpec {
         members.add(new SwMember(MemberType.Server_Url, "Url", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.Server_Description, "Description", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.Server_Variables, "Variables", ServerVariables.class.getCanonicalName()));
+        members.add(new AdditionalMethod(Type.Server_setVariables));
         return new SwElement(OpenAPISpec.createServer(), io.swagger.v3.oas.models.servers.Server.class.getCanonicalName(), members);
     }
 

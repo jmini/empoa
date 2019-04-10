@@ -120,4 +120,14 @@ public class SwServer implements Server {
         }
     }
 
+    @Override
+    public void setVariables(java.util.Map<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> variables) {
+        if (variables == null) {
+            _variables = null;
+        } else {
+            _variables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();
+            _variables.setServerVariables(variables);
+        }
+    }
+
 }
