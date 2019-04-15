@@ -15,174 +15,109 @@
  ******************************************************************************/
 package org.openapitools.empoa.kaizen.parser.internal;
 
-import static org.testng.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 import org.eclipse.microprofile.openapi.OASFactory;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class KzOASFactoryResolverTest {
 
     @Test
     public void testCreateObject() {
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.Components.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzComponents.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.Components.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzComponents.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.ExternalDocumentation.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzExternalDocumentation.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.ExternalDocumentation.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzExternalDocumentation.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.OpenAPI.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzOpenAPI.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.OpenAPI.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzOpenAPI.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.Operation.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzOperation.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.Operation.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzOperation.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.PathItem.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzPathItem.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.PathItem.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzPathItem.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.Paths.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.KzPaths.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.Paths.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.KzPaths.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.callbacks.Callback.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.callbacks.KzCallback.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.callbacks.Callback.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.callbacks.KzCallback.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.examples.Example.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.examples.KzExample.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.examples.Example.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.examples.KzExample.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.headers.Header.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.headers.KzHeader.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.headers.Header.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.headers.KzHeader.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.Contact.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.info.KzContact.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.Contact.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.info.KzContact.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.Info.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.info.KzInfo.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.Info.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.info.KzInfo.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.License.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.info.KzLicense.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.info.License.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.info.KzLicense.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.links.Link.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.links.KzLink.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.links.Link.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.links.KzLink.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Content.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzContent.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Content.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzContent.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Discriminator.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzDiscriminator.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Discriminator.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzDiscriminator.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Encoding.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzEncoding.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Encoding.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzEncoding.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.MediaType.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzMediaType.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.MediaType.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzMediaType.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Schema.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzSchema.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.Schema.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzSchema.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.XML.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.media.KzXML.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.media.XML.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.media.KzXML.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.parameters.Parameter.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.parameters.KzParameter.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.parameters.Parameter.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.parameters.KzParameter.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.parameters.RequestBody.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.parameters.KzRequestBody.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.parameters.RequestBody.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.parameters.KzRequestBody.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.responses.APIResponse.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.responses.KzAPIResponse.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.responses.APIResponse.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.responses.KzAPIResponse.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.responses.APIResponses.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.responses.KzAPIResponses.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.responses.APIResponses.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.responses.KzAPIResponses.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlow.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.security.KzOAuthFlow.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlow.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.security.KzOAuthFlow.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlows.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.security.KzOAuthFlows.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlows.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.security.KzOAuthFlows.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.Scopes.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.security.KzScopes.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.Scopes.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.security.KzScopes.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.security.KzSecurityRequirement.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.security.KzSecurityRequirement.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityScheme.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.security.KzSecurityScheme.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityScheme.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.security.KzSecurityScheme.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.Server.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServer.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.Server.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServer.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariable.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServerVariable.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariable.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServerVariable.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariables.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServerVariables.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariables.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.servers.KzServerVariables.class);
 
-        assertEquals(
-            OASFactory.createObject(org.eclipse.microprofile.openapi.models.tags.Tag.class)
-                .getClass(), org.openapitools.empoa.kaizen.parser.internal.models.tags.KzTag.class
-        );
+        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.tags.Tag.class))
+            .isOfAnyClassIn(org.openapitools.empoa.kaizen.parser.internal.models.tags.KzTag.class);
     }
-
 }
