@@ -43,7 +43,6 @@ import org.eclipse.microprofile.openapi.models.responses.APIResponse;
 import org.eclipse.microprofile.openapi.models.responses.APIResponses;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.models.security.Scopes;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
@@ -108,7 +107,6 @@ public class SwSpec {
         // org.eclipse.microprofile.openapi.models.security
         elements.add(createOAuthFlow());
         elements.add(createOAuthFlows());
-        elements.add(createScopes());
         elements.add(createSecurityRequirement());
         elements.add(createSecurityScheme());
 
@@ -398,7 +396,7 @@ public class SwSpec {
         members.add(new SwMember(MemberType.OAuthFlow_AuthorizationUrl, "AuthorizationUrl", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.OAuthFlow_TokenUrl, "TokenUrl", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.OAuthFlow_RefreshUrl, "RefreshUrl", String.class.getSimpleName()));
-        members.add(new SwMember(MemberType.OAuthFlow_Scopes, "Scopes", Scopes.class.getCanonicalName()));
+        members.add(new SwMember(MemberType.OAuthFlow_Scopes, "Scopes", io.swagger.v3.oas.models.security.Scopes.class.getCanonicalName()));
         return new SwElement(OpenAPISpec.createOAuthFlow(), io.swagger.v3.oas.models.security.OAuthFlow.class.getCanonicalName(), members);
     }
 
@@ -409,12 +407,6 @@ public class SwSpec {
         members.add(new SwMember(MemberType.OAuthFlows_ClientCredentials, "ClientCredentials", OAuthFlow.class.getCanonicalName()));
         members.add(new SwMember(MemberType.OAuthFlows_AuthorizationCode, "AuthorizationCode", OAuthFlow.class.getCanonicalName()));
         return new SwElement(OpenAPISpec.createOAuthFlows(), io.swagger.v3.oas.models.security.OAuthFlows.class.getCanonicalName(), members);
-    }
-
-    public static SwElement createScopes() {
-        List<IMember> members = new ArrayList<>();
-        members.add(new SwMapMember(MemberType.Scopes_Scopes, "Scopes", String.class.getSimpleName()));
-        return new SwElement(OpenAPISpec.createScopes(), io.swagger.v3.oas.models.security.Scopes.class.getCanonicalName(), members);
     }
 
     public static SwElement createSecurityRequirement() {

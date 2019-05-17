@@ -47,7 +47,6 @@ import org.eclipse.microprofile.openapi.models.responses.APIResponse;
 import org.eclipse.microprofile.openapi.models.responses.APIResponses;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.models.security.Scopes;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
@@ -89,7 +88,6 @@ public class OpenAPISpec {
         map.put(ElementType.APIResponses, org.eclipse.microprofile.openapi.models.responses.APIResponses.class);
         map.put(ElementType.OAuthFlow, org.eclipse.microprofile.openapi.models.security.OAuthFlow.class);
         map.put(ElementType.OAuthFlows, org.eclipse.microprofile.openapi.models.security.OAuthFlows.class);
-        map.put(ElementType.Scopes, org.eclipse.microprofile.openapi.models.security.Scopes.class);
         map.put(ElementType.SecurityRequirement, org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class);
         map.put(ElementType.SecurityScheme, org.eclipse.microprofile.openapi.models.security.SecurityScheme.class);
         map.put(ElementType.Server, org.eclipse.microprofile.openapi.models.servers.Server.class);
@@ -145,7 +143,6 @@ public class OpenAPISpec {
         // org.eclipse.microprofile.openapi.models.security
         elements.add(createOAuthFlow());
         elements.add(createOAuthFlows());
-        elements.add(createScopes());
         elements.add(createSecurityRequirement());
         elements.add(createSecurityScheme());
 
@@ -435,7 +432,7 @@ public class OpenAPISpec {
         members.add(new Member(MemberType.OAuthFlow_AuthorizationUrl, "AuthorizationUrl", String.class.getSimpleName()));
         members.add(new Member(MemberType.OAuthFlow_TokenUrl, "TokenUrl", String.class.getSimpleName()));
         members.add(new Member(MemberType.OAuthFlow_RefreshUrl, "RefreshUrl", String.class.getSimpleName()));
-        members.add(new Member(MemberType.OAuthFlow_Scopes, "Scopes", Scopes.class.getCanonicalName()));
+        members.add(new MapMember(MemberType.OAuthFlow_Scopes, "Scopes", String.class.getSimpleName()));
         return new Element(ElementType.OAuthFlow, OAuthFlow.class.getName(), true, false, members);
     }
 
@@ -446,12 +443,6 @@ public class OpenAPISpec {
         members.add(new Member(MemberType.OAuthFlows_ClientCredentials, "ClientCredentials", OAuthFlow.class.getCanonicalName()));
         members.add(new Member(MemberType.OAuthFlows_AuthorizationCode, "AuthorizationCode", OAuthFlow.class.getCanonicalName()));
         return new Element(ElementType.OAuthFlows, OAuthFlows.class.getName(), true, false, members);
-    }
-
-    public static Element createScopes() {
-        List<IMember> members = new ArrayList<>();
-        members.add(new MapMember(MemberType.Scopes_Scopes, "Scopes", String.class.getSimpleName(), MapNullValueStrategy.NULL_ALLOWED));
-        return new Element(ElementType.Scopes, Scopes.class.getName(), true, false, members);
     }
 
     public static Element createSecurityRequirement() {

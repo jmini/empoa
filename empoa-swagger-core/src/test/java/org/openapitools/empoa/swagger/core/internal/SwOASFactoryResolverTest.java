@@ -99,9 +99,6 @@ public class SwOASFactoryResolverTest {
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlows.class))
             .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.security.SwOAuthFlows.class);
 
-        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.Scopes.class))
-            .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.security.SwScopes.class);
-
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class))
             .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.security.SwSecurityRequirement.class);
 

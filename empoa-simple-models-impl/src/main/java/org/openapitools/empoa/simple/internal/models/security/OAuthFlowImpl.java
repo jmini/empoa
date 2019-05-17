@@ -95,16 +95,40 @@ public class OAuthFlowImpl implements OAuthFlow {
         _refreshUrl = refreshUrl;
     }
 
-    private org.eclipse.microprofile.openapi.models.security.Scopes _scopes;
+    private java.util.Map<String, String> _scopes;
 
     @Override
-    public org.eclipse.microprofile.openapi.models.security.Scopes getScopes() {
+    public java.util.Map<String, String> getScopes() {
         return _scopes;
     }
 
     @Override
-    public void setScopes(org.eclipse.microprofile.openapi.models.security.Scopes scopes) {
-        _scopes = scopes;
+    public void setScopes(java.util.Map<String, String> scopes) {
+        if (scopes == null) {
+            _scopes = null;
+        } else {
+            _scopes = new java.util.LinkedHashMap<>();
+            _scopes.putAll(scopes);
+        }
     }
 
+    @Override
+    public OAuthFlow addScope(String key, String object) {
+        if (object == null) {
+            throw new IllegalArgumentException("Null value for key '" + key + "' is not allowed");
+        } else {
+            if (_scopes == null) {
+                _scopes = new java.util.LinkedHashMap<>();
+            }
+            _scopes.put(key, object);
+        }
+        return this;
+    }
+
+    @Override
+    public void removeScope(String key) {
+        if (_scopes != null) {
+            _scopes.remove(key);
+        }
+    }
 }

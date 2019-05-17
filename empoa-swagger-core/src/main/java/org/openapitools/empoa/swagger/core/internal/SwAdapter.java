@@ -368,20 +368,6 @@ public class SwAdapter {
     }
 
     /**
-     * Create a MicroProfile {@link org.eclipse.microprofile.openapi.models.security.Scopes} instance wrapping the swagger-core {@link io.swagger.v3.oas.models.security.Scopes} instance
-     *
-     * @param swScopes
-     *            swagger-core instance
-     * @return scopes
-     */
-    public static org.eclipse.microprofile.openapi.models.security.Scopes toScopes(io.swagger.v3.oas.models.security.Scopes swScopes) {
-        if (swScopes == null) {
-            return new org.openapitools.empoa.swagger.core.internal.models.security.SwScopes();
-        }
-        return new org.openapitools.empoa.swagger.core.internal.models.security.SwScopes(swScopes);
-    }
-
-    /**
      * Create a MicroProfile {@link org.eclipse.microprofile.openapi.models.security.SecurityRequirement} instance wrapping the swagger-core {@link io.swagger.v3.oas.models.security.SecurityRequirement} instance
      *
      * @param swSecurityRequirement
@@ -813,20 +799,6 @@ public class SwAdapter {
             return ((org.openapitools.empoa.swagger.core.internal.models.security.SwOAuthFlows) mpOAuthFlows).getSw();
         }
         throw new IllegalArgumentException("Unxpected type for OAuthFlows: " + mpOAuthFlows);
-    }
-
-    /**
-     * Unwrap the swagger-core {@link io.swagger.v3.oas.models.security.Scopes} element contained in the MicroProfile {@link org.eclipse.microprofile.openapi.models.security.Scopes} instance
-     *
-     * @param mpScopes
-     *            MicroProfile instance
-     * @return Scopes
-     */
-    public static io.swagger.v3.oas.models.security.Scopes toSwScopes(org.eclipse.microprofile.openapi.models.security.Scopes mpScopes) {
-        if (mpScopes instanceof org.openapitools.empoa.swagger.core.internal.models.security.SwScopes) {
-            return ((org.openapitools.empoa.swagger.core.internal.models.security.SwScopes) mpScopes).getSw();
-        }
-        throw new IllegalArgumentException("Unxpected type for Scopes: " + mpScopes);
     }
 
     /**

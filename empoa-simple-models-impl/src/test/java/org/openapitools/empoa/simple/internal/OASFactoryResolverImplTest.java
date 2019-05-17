@@ -99,9 +99,6 @@ public class OASFactoryResolverImplTest {
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.OAuthFlows.class))
             .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.security.OAuthFlowsImpl.class);
 
-        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.Scopes.class))
-            .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.security.ScopesImpl.class);
-
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class))
             .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.security.SecurityRequirementImpl.class);
 

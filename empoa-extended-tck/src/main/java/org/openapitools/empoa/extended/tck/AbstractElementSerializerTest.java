@@ -45,7 +45,6 @@ import org.eclipse.microprofile.openapi.models.responses.APIResponse;
 import org.eclipse.microprofile.openapi.models.responses.APIResponses;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.models.security.Scopes;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
@@ -229,13 +228,6 @@ public abstract class AbstractElementSerializerTest {
     public void testEmptyOAuthFlowsToJson() throws Exception {
         OAuthFlows oAuthFlows = OASFactory.createOAuthFlows();
         String json = convertToJson(oAuthFlows);
-        assertThatJson(json).isEqualTo("{}");
-    }
-
-    @Test
-    public void testEmptyScopesToJson() throws Exception {
-        Scopes scopes = OASFactory.createScopes();
-        String json = convertToJson(scopes);
         assertThatJson(json).isEqualTo("{}");
     }
 
@@ -795,7 +787,11 @@ public abstract class AbstractElementSerializerTest {
 
         assertThatJson(json).isEqualTo(
             "" +
-                "{}"
+                "{\n" +
+                "  \"scopes\": {\n" +
+                "    \"myScope\": \"Some description\"\n" +
+                "  }\n" +
+                "}"
         );
     }
 
@@ -807,19 +803,6 @@ public abstract class AbstractElementSerializerTest {
         assertThatJson(json).isEqualTo(
             "" +
                 "{}"
-        );
-    }
-
-    @Test
-    public void testScopesToJson() throws Exception {
-        Scopes scopes = OASElement.createScopes();
-        String json = convertToJson(scopes);
-
-        assertThatJson(json).isEqualTo(
-            "" +
-                "{\n" +
-                "  \"myScope\": \"Some description\"\n" +
-                "}"
         );
     }
 
@@ -1116,8 +1099,6 @@ public abstract class AbstractElementSerializerTest {
     protected abstract String convertToJson(OAuthFlow oAuthFlow) throws IOException;
 
     protected abstract String convertToJson(OAuthFlows oAuthFlows) throws IOException;
-
-    protected abstract String convertToJson(Scopes scopes) throws IOException;
 
     protected abstract String convertToJson(SecurityRequirement securityRequirement) throws IOException;
 

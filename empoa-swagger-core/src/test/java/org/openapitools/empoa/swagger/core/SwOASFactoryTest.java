@@ -226,13 +226,6 @@ public class SwOASFactoryTest {
     }
 
     @Test
-    public void testScopes() throws Exception {
-        io.swagger.v3.oas.models.security.Scopes original = new io.swagger.v3.oas.models.security.Scopes();
-        org.eclipse.microprofile.openapi.models.security.Scopes converted = SwOASFactory.createObject(original);
-        assertThat(converted).isNotNull();
-    }
-
-    @Test
     public void testSecurityRequirement() throws Exception {
         io.swagger.v3.oas.models.security.SecurityRequirement original = new io.swagger.v3.oas.models.security.SecurityRequirement();
         org.eclipse.microprofile.openapi.models.security.SecurityRequirement converted = SwOASFactory.createObject(original);

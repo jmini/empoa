@@ -42,7 +42,6 @@ import org.eclipse.microprofile.openapi.models.responses.APIResponse;
 import org.eclipse.microprofile.openapi.models.responses.APIResponses;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.models.security.Scopes;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
@@ -201,12 +200,6 @@ public class ElementSerializerTckTest extends AbstractElementSerializerTest {
     protected String convertToJson(OAuthFlows oAuthFlows) throws IOException {
         return OASGsonSerializer.instance()
             .toJson(oAuthFlows);
-    }
-
-    @Override
-    protected String convertToJson(Scopes scopes) throws IOException {
-        return OASGsonSerializer.instance()
-            .toJson(scopes);
     }
 
     @Override

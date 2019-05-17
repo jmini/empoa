@@ -41,7 +41,6 @@ import org.eclipse.microprofile.openapi.models.responses.APIResponse;
 import org.eclipse.microprofile.openapi.models.responses.APIResponses;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.models.security.Scopes;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
@@ -200,16 +199,12 @@ public final class OASElement {
     }
 
     public static OAuthFlow createOAuthFlow() {
-        return OASFactory.createOAuthFlow();
+        return OASFactory.createOAuthFlow()
+            .addScope("myScope", "Some description");
     }
 
     public static OAuthFlows createOAuthFlows() {
         return OASFactory.createOAuthFlows();
-    }
-
-    public static Scopes createScopes() {
-        return OASFactory.createScopes()
-            .addScope("myScope", "Some description");
     }
 
     public static SecurityRequirement createSecurityRequirement() {

@@ -73,8 +73,6 @@ public class SwOASFactoryResolver extends org.eclipse.microprofile.openapi.spi.O
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.security.SwOAuthFlow();
         } else if (clazz == org.eclipse.microprofile.openapi.models.security.OAuthFlows.class) {
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.security.SwOAuthFlows();
-        } else if (clazz == org.eclipse.microprofile.openapi.models.security.Scopes.class) {
-            instance = (T) new org.openapitools.empoa.swagger.core.internal.models.security.SwScopes();
         } else if (clazz == org.eclipse.microprofile.openapi.models.security.SecurityRequirement.class) {
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.security.SwSecurityRequirement();
         } else if (clazz == org.eclipse.microprofile.openapi.models.security.SecurityScheme.class) {
