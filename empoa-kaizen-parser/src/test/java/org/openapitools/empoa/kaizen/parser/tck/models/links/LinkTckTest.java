@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.links.LinkTest;
 
 public class LinkTckTest extends LinkTest {
 
-
 }

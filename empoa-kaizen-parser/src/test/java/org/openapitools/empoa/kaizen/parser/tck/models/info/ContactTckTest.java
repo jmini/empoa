@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.info.ContactTest;
 
 public class ContactTckTest extends ContactTest {
 
-
 }

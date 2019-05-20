@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.info.InfoTest;
 
 public class InfoTckTest extends InfoTest {
 
-
 }

@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.OpenAPITest;
 
 public class OpenAPITckTest extends OpenAPITest {
 
-
 }

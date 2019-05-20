@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.DiscriminatorTest;
 
 public class DiscriminatorTckTest extends DiscriminatorTest {
 
-
 }

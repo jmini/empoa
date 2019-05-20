@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.examples.ExampleTest;
 
 public class ExampleTckTest extends ExampleTest {
 
-
 }

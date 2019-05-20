@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.EncodingTest;
 
 public class EncodingTckTest extends EncodingTest {
 
-
 }

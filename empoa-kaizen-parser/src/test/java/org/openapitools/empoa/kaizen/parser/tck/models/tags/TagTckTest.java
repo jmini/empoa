@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.tags.TagTest;
 
 public class TagTckTest extends TagTest {
 
-
 }

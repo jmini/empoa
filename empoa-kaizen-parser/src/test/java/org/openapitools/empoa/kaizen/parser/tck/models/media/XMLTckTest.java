@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.XMLTest;
 
 public class XMLTckTest extends XMLTest {
 
-
 }

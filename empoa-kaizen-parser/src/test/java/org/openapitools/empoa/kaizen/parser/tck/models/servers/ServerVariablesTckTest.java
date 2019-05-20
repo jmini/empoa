@@ -19,6 +19,4 @@ import org.openapitools.empoa.extended.tck.models.servers.ServerVariablesTest;
 
 public class ServerVariablesTckTest extends ServerVariablesTest {
 
-
-
 }

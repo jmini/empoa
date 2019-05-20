@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.ComponentsTest;
 
 public class ComponentsTckTest extends ComponentsTest {
 
-
 }

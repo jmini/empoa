@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.SchemaTest;
 
 public class SchemaTckTest extends SchemaTest {
 
-
 }

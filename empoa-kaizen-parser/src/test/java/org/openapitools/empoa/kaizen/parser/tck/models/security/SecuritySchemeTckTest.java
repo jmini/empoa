@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.security.SecuritySchemeTest;
 
 public class SecuritySchemeTckTest extends SecuritySchemeTest {
 
-
 }

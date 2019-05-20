@@ -19,6 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.ContentTest;
 
 public class ContentTckTest extends ContentTest {
 
-
-
 }

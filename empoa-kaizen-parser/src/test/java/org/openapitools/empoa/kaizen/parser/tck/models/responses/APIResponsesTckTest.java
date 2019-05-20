@@ -19,6 +19,4 @@ import org.openapitools.empoa.extended.tck.models.responses.APIResponsesTest;
 
 public class APIResponsesTckTest extends APIResponsesTest {
 
-
-
 }

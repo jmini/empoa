@@ -19,6 +19,4 @@ import org.openapitools.empoa.extended.tck.models.callbacks.CallbackTest;
 
 public class CallbackTckTest extends CallbackTest {
 
-
-
 }

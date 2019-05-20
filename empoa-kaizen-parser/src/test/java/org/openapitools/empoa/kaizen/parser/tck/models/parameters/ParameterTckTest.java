@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.parameters.ParameterTest;
 
 public class ParameterTckTest extends ParameterTest {
 
-
 }

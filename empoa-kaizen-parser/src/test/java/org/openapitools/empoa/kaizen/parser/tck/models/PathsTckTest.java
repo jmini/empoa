@@ -19,6 +19,4 @@ import org.openapitools.empoa.extended.tck.models.PathsTest;
 
 public class PathsTckTest extends PathsTest {
 
-
-
 }

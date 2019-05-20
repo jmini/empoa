@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.media.MediaTypeTest;
 
 public class MediaTypeTckTest extends MediaTypeTest {
 
-
 }

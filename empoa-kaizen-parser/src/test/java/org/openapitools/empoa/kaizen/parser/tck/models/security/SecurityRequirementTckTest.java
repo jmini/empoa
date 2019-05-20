@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.security.SecurityRequirementTe
 
 public class SecurityRequirementTckTest extends SecurityRequirementTest {
 
-
 }

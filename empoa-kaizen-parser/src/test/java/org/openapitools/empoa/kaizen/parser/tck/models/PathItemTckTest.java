@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.PathItemTest;
 
 public class PathItemTckTest extends PathItemTest {
 
-
 }

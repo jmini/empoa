@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.headers.HeaderTest;
 
 public class HeaderTckTest extends HeaderTest {
 
-
 }

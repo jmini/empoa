@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.OperationTest;
 
 public class OperationTckTest extends OperationTest {
 
-
 }

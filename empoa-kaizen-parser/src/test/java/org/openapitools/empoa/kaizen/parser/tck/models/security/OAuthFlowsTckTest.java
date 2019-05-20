@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.security.OAuthFlowsTest;
 
 public class OAuthFlowsTckTest extends OAuthFlowsTest {
 
-
 }

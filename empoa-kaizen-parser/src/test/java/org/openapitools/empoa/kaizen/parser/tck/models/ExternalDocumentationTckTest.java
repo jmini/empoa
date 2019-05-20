@@ -19,5 +19,4 @@ import org.openapitools.empoa.extended.tck.models.ExternalDocumentationTest;
 
 public class ExternalDocumentationTckTest extends ExternalDocumentationTest {
 
-
 }
