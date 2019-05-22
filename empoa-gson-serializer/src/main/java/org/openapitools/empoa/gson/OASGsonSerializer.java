@@ -44,7 +44,6 @@ import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
 import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 import org.openapitools.empoa.gson.intermal.serializers.ComponentsSerializer;
 import org.openapitools.empoa.gson.intermal.serializers.ExternalDocumentationSerializer;
@@ -75,7 +74,6 @@ import org.openapitools.empoa.gson.intermal.serializers.security.SecurityRequire
 import org.openapitools.empoa.gson.intermal.serializers.security.SecuritySchemeSerializer;
 import org.openapitools.empoa.gson.intermal.serializers.servers.ServerSerializer;
 import org.openapitools.empoa.gson.intermal.serializers.servers.ServerVariableSerializer;
-import org.openapitools.empoa.gson.intermal.serializers.servers.ServerVariablesSerializer;
 import org.openapitools.empoa.gson.intermal.serializers.tags.TagSerializer;
 
 import com.google.gson.Gson;
@@ -114,7 +112,6 @@ public class OASGsonSerializer {
             .registerTypeHierarchyAdapter(SecurityScheme.class, new SecuritySchemeSerializer())
             .registerTypeHierarchyAdapter(Server.class, new ServerSerializer())
             .registerTypeHierarchyAdapter(ServerVariable.class, new ServerVariableSerializer())
-            .registerTypeHierarchyAdapter(ServerVariables.class, new ServerVariablesSerializer())
             .registerTypeHierarchyAdapter(Tag.class, new TagSerializer())
             .setPrettyPrinting()
             .create();

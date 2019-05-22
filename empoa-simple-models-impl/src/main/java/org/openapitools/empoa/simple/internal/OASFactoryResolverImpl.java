@@ -81,8 +81,6 @@ public class OASFactoryResolverImpl extends org.eclipse.microprofile.openapi.spi
             instance = (T) new org.openapitools.empoa.simple.internal.models.servers.ServerImpl();
         } else if (clazz == org.eclipse.microprofile.openapi.models.servers.ServerVariable.class) {
             instance = (T) new org.openapitools.empoa.simple.internal.models.servers.ServerVariableImpl();
-        } else if (clazz == org.eclipse.microprofile.openapi.models.servers.ServerVariables.class) {
-            instance = (T) new org.openapitools.empoa.simple.internal.models.servers.ServerVariablesImpl();
         } else if (clazz == org.eclipse.microprofile.openapi.models.tags.Tag.class) {
             instance = (T) new org.openapitools.empoa.simple.internal.models.tags.TagImpl();
         } else {

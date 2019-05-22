@@ -99,7 +99,10 @@ public class OAuthFlowImpl implements OAuthFlow {
 
     @Override
     public java.util.Map<String, String> getScopes() {
-        return _scopes;
+        if (_scopes == null) {
+            return null;
+        }
+        return java.util.Collections.unmodifiableMap(_scopes);
     }
 
     @Override
@@ -113,14 +116,14 @@ public class OAuthFlowImpl implements OAuthFlow {
     }
 
     @Override
-    public OAuthFlow addScope(String key, String object) {
-        if (object == null) {
+    public OAuthFlow addScope(String key, String string) {
+        if (string == null) {
             throw new IllegalArgumentException("Null value for key '" + key + "' is not allowed");
         } else {
             if (_scopes == null) {
                 _scopes = new java.util.LinkedHashMap<>();
             }
-            _scopes.put(key, object);
+            _scopes.put(key, string);
         }
         return this;
     }
@@ -131,4 +134,5 @@ public class OAuthFlowImpl implements OAuthFlow {
             _scopes.remove(key);
         }
     }
+
 }

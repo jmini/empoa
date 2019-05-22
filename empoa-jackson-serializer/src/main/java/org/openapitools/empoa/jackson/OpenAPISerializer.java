@@ -54,7 +54,6 @@ import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
 import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 import org.openapitools.empoa.jackson.internal.JsonUtil;
 import org.openapitools.empoa.jackson.internal.OpenAPIConstants;
@@ -75,8 +74,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 public class OpenAPISerializer {
 
     public enum Format {
-        JSON("application/json"),
-        YAML("application/yaml");
+        JSON("application/json"), YAML("application/yaml");
 
         private final String mimeType;
 
@@ -525,21 +523,6 @@ public class OpenAPISerializer {
     }
 
     /**
-     * Serializes the given {@link ServerVariables} object into either JSON or YAML and returns it as a string.
-     *
-     * @param model
-     *            the ServerVariables object
-     * @param format
-     *            the serialization format
-     * @return ServerVariables object as a String
-     * @throws IOException
-     *             Errors in processing the JSON
-     */
-    public static final String serialize(ServerVariables model, Format format) throws IOException {
-        return serialize(model, OpenAPISerializer::writeServerVariablesToNode, format);
-    }
-
-    /**
      * Serializes the given {@link Tag} object into either JSON or YAML and returns it as a string.
      *
      * @param model
@@ -782,27 +765,13 @@ public class OpenAPISerializer {
      * @param serverNode
      * @param variables
      */
-    private static void writeServerVariables(ObjectNode serverNode, ServerVariables variables) {
+    private static void writeServerVariables(ObjectNode serverNode, Map<String, ServerVariable> variables) {
         if (variables == null) {
             return;
         }
         ObjectNode variablesNode = serverNode.putObject(OpenAPIConstants.PROP_VARIABLES);
-        writeServerVariablesToNode(variablesNode, variables);
-    }
-
-    /**
-     * Writes the {@link ServerVariables} model to the given JSON node.
-     *
-     * @param node
-     * @param variables
-     */
-    private static void writeServerVariablesToNode(ObjectNode node, ServerVariables variables) {
-        if (variables.getServerVariables() != null) {
-            for (String varName : variables.getServerVariables()
-                .keySet()) {
-                writeServerVariable(node, varName, variables.getServerVariable(varName));
-            }
-            writeExtensions(node, variables);
+        for (String varName : variables.keySet()) {
+            writeServerVariable(variablesNode, varName, variables.get(varName));
         }
     }
 

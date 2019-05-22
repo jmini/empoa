@@ -45,7 +45,6 @@ import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
 import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 
 public final class OASElement {
@@ -226,11 +225,6 @@ public final class OASElement {
     public static ServerVariable createServerVariable() {
         return OASFactory.createServerVariable()
             .description("Some description");
-    }
-
-    public static ServerVariables createServerVariables() {
-        return OASFactory.createServerVariables()
-            .addServerVariable("somevar", createServerVariable());
     }
 
     public static Tag createTag() {

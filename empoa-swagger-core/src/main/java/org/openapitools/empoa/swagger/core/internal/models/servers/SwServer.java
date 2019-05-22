@@ -15,7 +15,10 @@
  ******************************************************************************/
 package org.openapitools.empoa.swagger.core.internal.models.servers;
 
+import java.util.Map;
+
 import org.eclipse.microprofile.openapi.models.servers.Server;
+import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
 
 public class SwServer implements Server {
 
@@ -90,45 +93,55 @@ public class SwServer implements Server {
         _swServer.setDescription(description);
     }
 
-    private org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables _variables;
-
-    private void initVariables() {
-        if (_swServer.getVariables() == null) {
-            _variables = null;
-        } else if (_variables == null) {
-            _variables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables(_swServer.getVariables());
-        }
+    @Override
+    public Map<String, ServerVariable> getVariables() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
-    public org.eclipse.microprofile.openapi.models.servers.ServerVariables getVariables() {
-        initVariables();
-        return _variables;
+    public Server addVariable(String variableName, ServerVariable variable) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
-    public void setVariables(org.eclipse.microprofile.openapi.models.servers.ServerVariables variables) {
-        if (variables != null) {
-            if (!(variables instanceof org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables)) {
-                throw new IllegalArgumentException("Unexpected type: " + variables);
-            }
-            _variables = (org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables) variables;
-            _swServer.setVariables(_variables.getSw());
-        } else {
-            _variables = null;
-            _swServer.setVariables(null);
-        }
+    public void removeVariable(String variableName) {
+        // TODO Auto-generated method stub
+
     }
 
     @Override
-    public void setVariables(java.util.Map<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> variables) {
-        if (variables == null) {
-            setVariables((org.eclipse.microprofile.openapi.models.servers.ServerVariables) null);
-        } else {
-            org.eclipse.microprofile.openapi.models.servers.ServerVariables serverVariables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();
-            serverVariables.setServerVariables(variables);
-            setVariables(serverVariables);
-        }
+    public void setVariables(Map<String, ServerVariable> variables) {
+        // TODO Auto-generated method stub
+
     }
+
+    // private org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables _variables;
+    //
+    // private void initVariables() {
+    // if (_swServer.getVariables() == null) {
+    // _variables = null;
+    // } else if (_variables == null) {
+    // _variables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables(_swServer.getVariables());
+    // }
+    // }
+    //
+    // @Override
+    // public org.eclipse.microprofile.openapi.models.servers.ServerVariables getVariables() {
+    // initVariables();
+    // return _variables;
+    // }
+    //
+    // @Override
+    // public void setVariables(java.util.Map<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> variables) {
+    // if (variables == null) {
+    // setVariables((org.eclipse.microprofile.openapi.models.servers.ServerVariables) null);
+    // } else {
+    // org.eclipse.microprofile.openapi.models.servers.ServerVariables serverVariables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();
+    // serverVariables.setServerVariables(variables);
+    // setVariables(serverVariables);
+    // }
+    // }
 
 }

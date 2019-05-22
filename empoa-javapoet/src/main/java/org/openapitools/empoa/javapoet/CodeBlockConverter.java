@@ -1158,7 +1158,10 @@ public class CodeBlockConverter {
             list.add(CodeBlock.of("description($S)", server.getDescription()));
         }
         if (server.getVariables() != null) {
-            list.add(CodeBlock.of("variables(\n$L\n)", createServerVariables(server.getVariables())));
+            for (java.util.Map.Entry<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> entry : server.getVariables()
+                .entrySet()) {
+                list.add(CodeBlock.of("addVariable(\n$S, $L\n)", entry.getKey(), createServerVariable(entry.getValue())));
+            }
         }
         if (server.getExtensions() != null) {
             for (java.util.Map.Entry<String, Object> entry : server.getExtensions()
@@ -1189,28 +1192,6 @@ public class CodeBlockConverter {
         }
         if (serverVariable.getExtensions() != null) {
             for (java.util.Map.Entry<String, Object> entry : serverVariable.getExtensions()
-                .entrySet()) {
-                if (entry.getValue() instanceof String) {
-                    list.add(CodeBlock.of("addExtension($S, $S)", entry.getKey(), entry.getValue()));
-                } else {
-                    list.add(CodeBlock.of("addExtension($S, $L)", entry.getKey(), entry.getValue()));
-                }
-            }
-        }
-        return CodeBlock.join(list, "\n.");
-    }
-
-    public static CodeBlock createServerVariables(org.eclipse.microprofile.openapi.models.servers.ServerVariables serverVariables) {
-        List<CodeBlock> list = new ArrayList<>();
-        list.add(CodeBlock.of("createServerVariables()"));
-        if (serverVariables.getServerVariables() != null) {
-            for (java.util.Map.Entry<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> entry : serverVariables.getServerVariables()
-                .entrySet()) {
-                list.add(CodeBlock.of("addServerVariable(\n$S, $L\n)", entry.getKey(), createServerVariable(entry.getValue())));
-            }
-        }
-        if (serverVariables.getExtensions() != null) {
-            for (java.util.Map.Entry<String, Object> entry : serverVariables.getExtensions()
                 .entrySet()) {
                 if (entry.getValue() instanceof String) {
                     list.add(CodeBlock.of("addExtension($S, $S)", entry.getKey(), entry.getValue()));

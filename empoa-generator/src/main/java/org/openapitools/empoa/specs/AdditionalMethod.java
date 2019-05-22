@@ -31,7 +31,6 @@ public class AdditionalMethod implements IMember {
         Schema_setAdditionalPropertiesSchema,
         Schema_setAdditionalPropertiesBoolean,
         APIResponses_getDefaultValue,
-        APIResponses_setDefaultValue,
-        Server_setVariables
+        APIResponses_setDefaultValue
     }
 }

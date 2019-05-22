@@ -81,8 +81,6 @@ public class SwOASFactoryResolver extends org.eclipse.microprofile.openapi.spi.O
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.servers.SwServer();
         } else if (clazz == org.eclipse.microprofile.openapi.models.servers.ServerVariable.class) {
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariable();
-        } else if (clazz == org.eclipse.microprofile.openapi.models.servers.ServerVariables.class) {
-            instance = (T) new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();
         } else if (clazz == org.eclipse.microprofile.openapi.models.tags.Tag.class) {
             instance = (T) new org.openapitools.empoa.swagger.core.internal.models.tags.SwTag();
         } else {

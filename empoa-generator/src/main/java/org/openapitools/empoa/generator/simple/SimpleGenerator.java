@@ -55,13 +55,13 @@ public class SimpleGenerator {
         StringBuilder sb = new StringBuilder();
         sb.append("/*******************************************************************************\n");
         sb.append(" * Copyright 2019 Jeremie Bresson\n");
-        sb.append(" * \n");
+        sb.append(" *\n");
         sb.append(" * Licensed under the Apache License, Version 2.0 (the \"License\"); you may not\n");
         sb.append(" * use this file except in compliance with the License.  You may obtain a copy\n");
         sb.append(" * of the License at\n");
-        sb.append(" * \n");
+        sb.append(" *\n");
         sb.append(" *   http://www.apache.org/licenses/LICENSE-2.0\n");
-        sb.append(" * \n");
+        sb.append(" *\n");
         sb.append(" * Unless required by applicable law or agreed to in writing, software\n");
         sb.append(" * distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\n");
         sb.append(" * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the\n");
@@ -306,18 +306,6 @@ public class SimpleGenerator {
             sb.append("            removeAPIResponse(DEFAULT);\n");
             sb.append("        } else {\n");
             sb.append("            addAPIResponse(DEFAULT, defaultValue);\n");
-            sb.append("        }\n");
-            sb.append("    }\n");
-            sb.append("\n");
-            break;
-        case Server_setVariables:
-            sb.append("    @Override\n");
-            sb.append("    public void setVariables(java.util.Map<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> variables) {\n");
-            sb.append("        if (variables == null) {\n");
-            sb.append("            _variables = null;\n");
-            sb.append("        } else {\n");
-            sb.append("            _variables = new org.openapitools.empoa.simple.internal.models.servers.ServerVariablesImpl();\n");
-            sb.append("            _variables.setServerVariables(variables);\n");
             sb.append("        }\n");
             sb.append("    }\n");
             sb.append("\n");

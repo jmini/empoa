@@ -111,9 +111,6 @@ public class OASFactoryResolverImplTest {
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariable.class))
             .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.servers.ServerVariableImpl.class);
 
-        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariables.class))
-            .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.servers.ServerVariablesImpl.class);
-
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.tags.Tag.class))
             .isOfAnyClassIn(org.openapitools.empoa.simple.internal.models.tags.TagImpl.class);
     }

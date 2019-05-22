@@ -502,18 +502,6 @@ public class SwGenerator {
             sb.append("    }\n");
             sb.append("\n");
             break;
-        case Server_setVariables:
-            sb.append("    @Override\n");
-            sb.append("    public void setVariables(java.util.Map<String, org.eclipse.microprofile.openapi.models.servers.ServerVariable> variables) {\n");
-            sb.append("        if (variables == null) {\n");
-            sb.append("            _variables = null;\n");
-            sb.append("        } else {\n");
-            sb.append("            _variables = new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();\n");
-            sb.append("            _variables.setServerVariables(variables);\n");
-            sb.append("        }\n");
-            sb.append("    }\n");
-            sb.append("\n");
-            break;
         default:
             throw new IllegalArgumentException("Unexpected type " + type);
         }

@@ -46,8 +46,6 @@ import org.eclipse.microprofile.openapi.models.security.OAuthFlows;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 import org.openapitools.empoa.specs.AdditionalMethod;
 import org.openapitools.empoa.specs.AdditionalMethod.Type;
@@ -113,7 +111,6 @@ public class SwSpec {
         // org.eclipse.microprofile.openapi.models.servers
         elements.add(createServer());
         elements.add(createServerVariable());
-        elements.add(createServerVariables());
 
         // org.eclipse.microprofile.openapi.models.tag
         elements.add(createTag());
@@ -434,8 +431,7 @@ public class SwSpec {
         List<IMember> members = new ArrayList<>();
         members.add(new SwMember(MemberType.Server_Url, "Url", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.Server_Description, "Description", String.class.getSimpleName()));
-        members.add(new SwMember(MemberType.Server_Variables, "Variables", ServerVariables.class.getCanonicalName()));
-        members.add(new AdditionalMethod(Type.Server_setVariables));
+        members.add(new SwMember(MemberType.Server_Variables, "Variables", io.swagger.v3.oas.models.servers.ServerVariables.class.getCanonicalName()));
         return new SwElement(OpenAPISpec.createServer(), io.swagger.v3.oas.models.servers.Server.class.getCanonicalName(), members);
     }
 
@@ -445,12 +441,6 @@ public class SwSpec {
         members.add(new SwMember(MemberType.ServerVariable_DefaultValue, "Default", String.class.getSimpleName()));
         members.add(new SwMember(MemberType.ServerVariable_Description, "Description", String.class.getSimpleName()));
         return new SwElement(OpenAPISpec.createServerVariable(), io.swagger.v3.oas.models.servers.ServerVariable.class.getCanonicalName(), members);
-    }
-
-    public static SwElement createServerVariables() {
-        List<IMember> members = new ArrayList<>();
-        members.add(new SwMapMember(MemberType.ServerVariables_ServerVariables, "ServerVariables", ServerVariable.class.getCanonicalName()));
-        return new SwElement(OpenAPISpec.createServerVariables(), io.swagger.v3.oas.models.servers.ServerVariables.class.getCanonicalName(), members);
     }
 
     public static SwElement createTag() {

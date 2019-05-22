@@ -189,7 +189,6 @@ public enum MemberType {
     ServerVariable_Enumeration(ElementType.ServerVariable),
     ServerVariable_DefaultValue(ElementType.ServerVariable),
     ServerVariable_Description(ElementType.ServerVariable),
-    ServerVariables_ServerVariables(ElementType.ServerVariables),
     Tag_Name(ElementType.Tag),
     Tag_Description(ElementType.Tag),
     Tag_ExternalDocs(ElementType.Tag);
