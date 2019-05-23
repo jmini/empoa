@@ -51,7 +51,6 @@ import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
 import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 import org.openapitools.empoa.specs.AdditionalMethod.Type;
 
@@ -92,7 +91,6 @@ public class OpenAPISpec {
         map.put(ElementType.SecurityScheme, org.eclipse.microprofile.openapi.models.security.SecurityScheme.class);
         map.put(ElementType.Server, org.eclipse.microprofile.openapi.models.servers.Server.class);
         map.put(ElementType.ServerVariable, org.eclipse.microprofile.openapi.models.servers.ServerVariable.class);
-        map.put(ElementType.ServerVariables, org.eclipse.microprofile.openapi.models.servers.ServerVariables.class);
         map.put(ElementType.Tag, org.eclipse.microprofile.openapi.models.tags.Tag.class);
         return map;
     }
@@ -149,7 +147,6 @@ public class OpenAPISpec {
         // org.eclipse.microprofile.openapi.models.servers
         elements.add(createServer());
         elements.add(createServerVariable());
-        elements.add(createServerVariables());
 
         // org.eclipse.microprofile.openapi.models.tag
         elements.add(createTag());
@@ -470,8 +467,7 @@ public class OpenAPISpec {
         List<IMember> members = new ArrayList<>();
         members.add(new Member(MemberType.Server_Url, "Url", String.class.getSimpleName()));
         members.add(new Member(MemberType.Server_Description, "Description", String.class.getSimpleName()));
-        members.add(new Member(MemberType.Server_Variables, "Variables", ServerVariables.class.getCanonicalName()));
-        members.add(new AdditionalMethod(Type.Server_setVariables));
+        members.add(new MapMember(MemberType.Server_Variables, "Variables", ServerVariable.class.getCanonicalName()));
         return new Element(ElementType.Server, Server.class.getName(), true, false, members);
     }
 
@@ -481,12 +477,6 @@ public class OpenAPISpec {
         members.add(new Member(MemberType.ServerVariable_DefaultValue, "DefaultValue", String.class.getSimpleName()));
         members.add(new Member(MemberType.ServerVariable_Description, "Description", String.class.getSimpleName()));
         return new Element(ElementType.ServerVariable, ServerVariable.class.getName(), true, false, members);
-    }
-
-    public static Element createServerVariables() {
-        List<IMember> members = new ArrayList<>();
-        members.add(new MapMember(MemberType.ServerVariables_ServerVariables, "ServerVariables", ServerVariable.class.getCanonicalName()));
-        return new Element(ElementType.ServerVariables, ServerVariables.class.getName(), true, false, members);
     }
 
     public static Element createTag() {

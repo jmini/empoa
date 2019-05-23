@@ -30,7 +30,6 @@ public class Util {
         case Content:
         case APIResponses:
         case SecurityRequirement:
-        case ServerVariables:
             List<MapMember> list = e.members.stream()
                 .filter(m -> m instanceof MapMember)
                 .map(m -> (MapMember) m)

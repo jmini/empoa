@@ -45,6 +45,5 @@ public enum ElementType {
     SecurityScheme,
     Server,
     ServerVariable,
-    ServerVariables,
     Tag
 }

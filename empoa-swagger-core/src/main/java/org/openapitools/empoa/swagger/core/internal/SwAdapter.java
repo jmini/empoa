@@ -424,20 +424,6 @@ public class SwAdapter {
     }
 
     /**
-     * Create a MicroProfile {@link org.eclipse.microprofile.openapi.models.servers.ServerVariables} instance wrapping the swagger-core {@link io.swagger.v3.oas.models.servers.ServerVariables} instance
-     *
-     * @param swServerVariables
-     *            swagger-core instance
-     * @return serverVariables
-     */
-    public static org.eclipse.microprofile.openapi.models.servers.ServerVariables toServerVariables(io.swagger.v3.oas.models.servers.ServerVariables swServerVariables) {
-        if (swServerVariables == null) {
-            return new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables();
-        }
-        return new org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables(swServerVariables);
-    }
-
-    /**
      * Create a MicroProfile {@link org.eclipse.microprofile.openapi.models.tags.Tag} instance wrapping the swagger-core {@link io.swagger.v3.oas.models.tags.Tag} instance
      *
      * @param swTag
@@ -855,20 +841,6 @@ public class SwAdapter {
             return ((org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariable) mpServerVariable).getSw();
         }
         throw new IllegalArgumentException("Unxpected type for ServerVariable: " + mpServerVariable);
-    }
-
-    /**
-     * Unwrap the swagger-core {@link io.swagger.v3.oas.models.servers.ServerVariables} element contained in the MicroProfile {@link org.eclipse.microprofile.openapi.models.servers.ServerVariables} instance
-     *
-     * @param mpServerVariables
-     *            MicroProfile instance
-     * @return ServerVariables
-     */
-    public static io.swagger.v3.oas.models.servers.ServerVariables toSwServerVariables(org.eclipse.microprofile.openapi.models.servers.ServerVariables mpServerVariables) {
-        if (mpServerVariables instanceof org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables) {
-            return ((org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables) mpServerVariables).getSw();
-        }
-        throw new IllegalArgumentException("Unxpected type for ServerVariables: " + mpServerVariables);
     }
 
     /**

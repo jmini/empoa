@@ -46,7 +46,6 @@ import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.models.servers.Server;
 import org.eclipse.microprofile.openapi.models.servers.ServerVariable;
-import org.eclipse.microprofile.openapi.models.servers.ServerVariables;
 import org.eclipse.microprofile.openapi.models.tags.Tag;
 import org.openapitools.empoa.extended.tck.AbstractElementSerializerTest;
 
@@ -224,12 +223,6 @@ public class ElementSerializerTckTest extends AbstractElementSerializerTest {
     protected String convertToJson(ServerVariable serverVariable) throws IOException {
         return OASGsonSerializer.instance()
             .toJson(serverVariable);
-    }
-
-    @Override
-    protected String convertToJson(ServerVariables serverVariables) throws IOException {
-        return OASGsonSerializer.instance()
-            .toJson(serverVariables);
     }
 
     @Override

@@ -111,9 +111,6 @@ public class SwOASFactoryResolverTest {
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariable.class))
             .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariable.class);
 
-        assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.servers.ServerVariables.class))
-            .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.servers.SwServerVariables.class);
-
         assertThat(OASFactory.createObject(org.eclipse.microprofile.openapi.models.tags.Tag.class))
             .isOfAnyClassIn(org.openapitools.empoa.swagger.core.internal.models.tags.SwTag.class);
     }

@@ -264,13 +264,6 @@ public class SwOASFactoryTest {
     }
 
     @Test
-    public void testServerVariables() throws Exception {
-        io.swagger.v3.oas.models.servers.ServerVariables original = new io.swagger.v3.oas.models.servers.ServerVariables();
-        org.eclipse.microprofile.openapi.models.servers.ServerVariables converted = SwOASFactory.createObject(original);
-        assertThat(converted).isNotNull();
-    }
-
-    @Test
     public void testTag() throws Exception {
         io.swagger.v3.oas.models.tags.Tag original = new io.swagger.v3.oas.models.tags.Tag();
         original.setDescription("Some description");
