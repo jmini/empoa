@@ -74,7 +74,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 public class OpenAPISerializer {
 
     public enum Format {
-        JSON("application/json"), YAML("application/yaml");
+        JSON("application/json"),
+        YAML("application/yaml");
 
         private final String mimeType;
 

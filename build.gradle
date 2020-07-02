@@ -1,21 +1,37 @@
 plugins {
-    id 'org.asciidoctor.convert' version '1.5.9.1'
+    id 'com.diffplug.gradle.spotless' version '3.27.1' apply false
+    id 'org.asciidoctor.convert' version '2.4.0'
     id 'org.ajoberstar.git-publish' version '2.0.0'
+    id 'de.marcphilipp.nexus-publish' version '0.3.0' apply false
     id 'net.researchgate.release' version '2.6.0'
+    id 'io.codearte.nexus-staging' version '0.21.0'
 }
 
 wrapper {
-    gradleVersion = '5.0'
+    gradleVersion = '5.6.4'
 }
 
 allprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
+    apply plugin: 'de.marcphilipp.nexus-publish'
 
     group = 'org.openapitools.empoa'
 }
 
 subprojects {
+    apply plugin: 'com.diffplug.gradle.spotless'
+
+    spotless {
+        java {
+            importOrder 'java', 'javax', 'org', 'com', ''
+            removeUnusedImports()
+
+            // available versions are: https://github.com/diffplug/spotless/tree/master/lib-extra/src/main/resources/com/diffplug/spotless/extra/eclipse_jdt_formatter
+            eclipse('4.13.0').configFile('.settings/org.eclipse.jdt.core.prefs')
+        }
+    }
+
     repositories {
         mavenLocal()
         mavenCentral()
@@ -25,30 +41,28 @@ subprojects {
         }
     }
 
-    publishing {
+    nexusPublishing {
         repositories {
-            maven {
-                url = version.endsWith('SNAPSHOT') ? mavenPublishUrlSnapshot : mavenPublishUrlRelease
-                credentials {
-                    username = project.findProperty('sonatypeUser') ?: ''
-                    password = project.findProperty('sonatypePassword') ?: ''
-                }
+            sonatype {
+                username = project.findProperty('sonatypeUser') ?: ''
+                password = project.findProperty('sonatypePassword') ?: ''
             }
-        }
-    }
-
-    model {
-        tasks.publishMavenJavaPublicationToMavenLocal {
-            dependsOn(project.tasks.signArchives)
-        }
-        tasks.publishMavenJavaPublicationToMavenRepository {
-            dependsOn(project.tasks.signArchives)
         }
     }
 }
 
+nexusStaging {
+    packageGroup = 'org.openapitools'
+    username = project.findProperty('sonatypeUser') ?: ''
+    password = project.findProperty('sonatypePassword') ?: ''
+}
+
 def buildDate() {
     return new Date().format('yyyy-MM-dd')
+}
+
+asciidoctorj {
+    version = "$asciidoctorjVersion"
 }
 
 asciidoctor {
@@ -69,9 +83,11 @@ asciidoctor {
                   'idprefix'          : '',
                   'idseparator'       : '-',
                   'docinfo1'          : 'true']
-
+    repositories {
+        mavenCentral()
+    }
     dependencies {
-        asciidoctor "fr.jmini.asciidoctorj:git-link:3.0.0"
+        asciidoctor "fr.jmini.asciidoctorj:git-link:3.2.1"
     }
 }
 

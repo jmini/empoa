@@ -17,6 +17,8 @@
 Code (implementation, experiments, tools...) for the Eclipse MicroProfile OpenAPI project
 //end::header[]
 
+image:https://github.com/{gh-repo-owner}/{gh-repo-name}/workflows/CI/badge.svg["Build Status", link="https://github.com/{gh-repo-owner}/{gh-repo-name}/actions?query=workflow%3ACI"]
+
 //tag::description[]
 == Description
 link:http://github.com/eclipse/microprofile-open-api[Eclipse MicroProfile OpenAPI] is a standardisation effort around OpenAPI.
